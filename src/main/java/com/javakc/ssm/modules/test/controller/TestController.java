@@ -3,7 +3,7 @@ package com.javakc.ssm.modules.test.controller;
 import com.javakc.ssm.base.page.Page;
 import com.javakc.ssm.base.util.CommonUtil;
 import com.javakc.ssm.modules.test.entity.TestEntity;
-import com.javakc.ssm.modules.test.servie.TestService;
+import com.javakc.ssm.modules.test.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

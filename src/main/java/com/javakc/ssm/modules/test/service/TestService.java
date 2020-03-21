@@ -1,4 +1,4 @@
-package com.javakc.ssm.modules.test.servie;
+package com.javakc.ssm.modules.test.service;
 
 import com.javakc.ssm.base.page.Page;
 import com.javakc.ssm.base.service.BaseService;
