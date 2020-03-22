@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javakc.ssm.modules.bookIn.dao.BookInDao">
+      <select id="findList" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
+         select
+           BOOK_ID as bookId,bl.booklist_name as booklistName,ba.bath_name as batch_name,ca.two_name as twoname,
+           CP_ID as cpId,TAROT_ID as tarotId,BOOKNAME as bookname,AUTHOR as author,SERIALIZATION as serialization,WORD_NUMBER as wordNumber,
+           STATE as state,IF_CHARGE as ifCharge,PRICE as price,IF_ORIGINAL as ifOriginal,PRESS as press,PUBLISHING_TIME as publishingTime,
+           RIGHT_START_TIME as rightStartTime,ERROR_END_TIME as errorEndTime,AUTHOR_ERROR_END_TIME as authorErrorEndTime,
+           b.AUTHORIZATION_STATUS as authorizationStatus,AUTHOR_RIGHT_START_TIME as authorRightStartTime
+           from book b left join COPYRIGHT c on b.COPYRIGHTID = c.COPYRIGHTID
+           left join BOOKLIST bl on b.booklist_id = bl.booklist_id
+           left join "BATCH" ba on bl.batch_id = ba.batch_id
+           left join "CATEGORY" ca on ca.category_id = b.category_id
+           where 1=1
+      </select>
+</mapper>
