@@ -3,7 +3,7 @@
 <mapper namespace="com.javakc.ssm.modules.bookIn.dao.BookInDao">
       <select id="findList" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
          select
-           BOOK_ID as bookId,bl.booklist_name as booklistName,ba.bath_name as batch_name,ca.two_name as twoname,
+           BOOK_ID as bookId,bl.booklist_name as booklistName,ba.bath_name as batch_name,ca.two_name as twoname,b.copyrightid as copyrightId,
            CP_ID as cpId,TAROT_ID as tarotId,BOOKNAME as bookname,AUTHOR as author,SERIALIZATION as serialization,WORD_NUMBER as wordNumber,
            STATE as state,IF_CHARGE as ifCharge,PRICE as price,IF_ORIGINAL as ifOriginal,PRESS as press,PUBLISHING_TIME as publishingTime,
            RIGHT_START_TIME as rightStartTime,ERROR_END_TIME as errorEndTime,AUTHOR_ERROR_END_TIME as authorErrorEndTime,
@@ -13,5 +13,108 @@
            left join "BATCH" ba on bl.batch_id = ba.batch_id
            left join "CATEGORY" ca on ca.category_id = b.category_id
            where 1=1
+           <if test="cpId!=null and cpId!=''">
+               and b.cp_id like #{cpId} || '%'
+           </if>
+           <if test="tarotId!=null and tarotId!=''">
+              and b.tarotId like #{tarotId} || '%'
+           </if>
+          <if test="bookname!=null and bookname!=''">
+              and b.bookname like '%' || #{bookname} || '%'
+          </if>
+          <if test="author!=null and author!=''">
+              and b.author like '%' || #{author} || '%'
+          </if>
+          <if test="serialization!=null and serialization!=''">
+              and b.serialization = #{serialization}
+          </if>
+          <if test="state!=null and state!=''">
+              and b.state = #{state}
+          </if>
+          <if test="ifOriginal!=null and ifOriginal!=''">
+              and b.IF_ORIGINAL = #{ifOriginal}
+          </if>
+          <if test="ifCharge!=null and ifCharge!=''">
+              and b.IF_CHARGE = #{ifCharge}
+          </if>
+          <if test="copyrightid!=null and copyrightid!=''">
+              and b.copyrightId = #{copyrightid}
+          </if>
+          <if test="booklistId!=null and booklistId!=''">
+              and b.booklist_id = #{booklistId}
+          </if>
+          <if test="categoryId!=null and categoryId!=''">
+              and b.category_id = #{categoryId}
+          </if>
       </select>
+
+    <select id="findCopyRightname" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
+        select  COPYRIGHT_name as copyrightName from COPYRIGHT c
+    </select>
+
+    <select id="findBatchname" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
+        select  bath_name as batchName from "BATCH"
+    </select>
+
+    <select id="findBooklistname" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
+        select  booklist_name as booklistName from BOOKLIST
+    </select>
+
+      <insert id="insert">
+          insert into book (book_id,cp_id,tarot_id,bookname,author,serialization,
+          word_number,state,if_charge,Price,if_original,Press,Publishing_time,
+          Right_start_time,error_end_time,author_Right_start_time,
+          author_error_end_time,Receiving_time,one_Successful_time,
+          one_delete_time,in_successful_time,in_delete_time,one_Reject,
+          in_reject_time,Go_online_time,Offline_time,to_update_time,
+          Authorization_status,Remarks,falg,copyrightId,
+          booklist_id,chapters_number,category_id,Toll_section_start)
+          values (#{bookId},#{cpId},#{tarotId},#{bookname},#{author},#{serialization},
+          #{wordNumber},#{state},#{ifCharge},#{price},#{ifOriginal},#{press},#{publishingTime},
+          #{rightStartTime},#{errorEndTime},#{authorRightStartTime},#{authorErrorEndTime},
+          #{receivingTime},#{oneSuccessfulTime},#{oneDeleteTime},#{inSuccessfulTime},
+          #{inDeleteTime},#{oneReject},#{inRejectTime},#{goOnlineTime},#{offlineTime},
+          #{toUpdateTime},#{authorizationStatus},#{remarks},#{falg},#{copyrightid},
+          #{booklistId},#{chaptersNumber},#{categoryId},#{tollSectionStart})
+      </insert>
+
+
+
+    <select id="get" resultType="com.javakc.ssm.modules.bookIn.entity.BookInEntity">
+                 select
+           BOOK_ID as bookId,bl.booklist_name as booklistName,ba.bath_name as batch_name,ca.two_name as twoname,
+           CP_ID as cpId,TAROT_ID as tarotId,BOOKNAME as bookname,AUTHOR as author,SERIALIZATION as serialization,WORD_NUMBER as wordNumber,
+           STATE as state,IF_CHARGE as ifCharge,PRICE as price,IF_ORIGINAL as ifOriginal,PRESS as press,PUBLISHING_TIME as publishingTime,
+           RIGHT_START_TIME as rightStartTime,ERROR_END_TIME as errorEndTime,AUTHOR_ERROR_END_TIME as authorErrorEndTime,
+           b.AUTHORIZATION_STATUS as authorizationStatus,AUTHOR_RIGHT_START_TIME as authorRightStartTime
+           from book b left join COPYRIGHT c on b.COPYRIGHTID = c.COPYRIGHTID
+           left join BOOKLIST bl on b.booklist_id = bl.booklist_id
+           left join "BATCH" ba on bl.batch_id = ba.batch_id
+           left join "CATEGORY" ca on ca.category_id = b.category_id
+           where book_id = #{0}
+    </select>
+
+
+    <update id="update">
+        update book set
+         bookname=#{bookname},copyrightId=#{categoryId},author=#{author},
+         category_id=#{categoryId},booklist_id=#{booklistId},
+         author_Right_start_time=#{authorRightStartTime},
+         author_error_end_time=#{authorErrorEndTime},
+         serialization=#{serialization},
+         if_original=#{ifOriginal},Publishing_time=#{publishingTime},
+         Remarks=#{remarks}
+        where book_id=#{bookId}
+    </update>
+
+    <delete id="delete">
+        update book  set falg=1 where book_id in
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="signdelete">
+        update book  set falg=1 where book_id=#{bookId}
+    </delete>
 </mapper>

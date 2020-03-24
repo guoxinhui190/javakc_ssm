@@ -1,7 +1,7 @@
-package com.javakc.ssm.modules.chapters.entity;
+package com.javakc.ssm.modules.chaptersOut.entity;
 
-import com.javakc.ssm.modules.bookIn.entity.BookInEntity;
-import com.javakc.ssm.modules.copyright.entity.CopyrightEntity;
+import com.javakc.ssm.modules.bookOut.entity.BookOutEntity;
+import com.javakc.ssm.modules.operator.entity.OperatorEntity;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,9 +13,9 @@ import java.util.Date;
  * @Date 2020/3/21 11:59
  * @Version 1.0
  **/
-
 @Data
-public class ChaptersEntity {
+public class ChaptersOutEntity {
+
     private String chaptersId ;
     /** 章节名称 */
     private String chaptersName ;
@@ -47,7 +47,6 @@ public class ChaptersEntity {
     private Integer oldNumber ;
     /** 过滤词 */
     private String filterWords ;
-    /** 引进书籍 **/
-    private BookInEntity bookInEntity;
-
+    /** 书籍输出 **/
+    private BookOutEntity bookOutEntity;
 }

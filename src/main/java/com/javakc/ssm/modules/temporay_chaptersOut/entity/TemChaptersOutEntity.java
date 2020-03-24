@@ -1,7 +1,7 @@
-package com.javakc.ssm.modules.chapters.entity;
+package com.javakc.ssm.modules.temporay_chaptersOut.entity;
 
 import com.javakc.ssm.modules.bookIn.entity.BookInEntity;
-import com.javakc.ssm.modules.copyright.entity.CopyrightEntity;
+import com.javakc.ssm.modules.bookOut.entity.BookOutEntity;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,14 +13,12 @@ import java.util.Date;
  * @Date 2020/3/21 11:59
  * @Version 1.0
  **/
-
 @Data
-public class ChaptersEntity {
-    private String chaptersId ;
+public class TemChaptersOutEntity {
+
+    private String temporaryId ;
     /** 章节名称 */
     private String chaptersName ;
-    /** 章节字数 */
-    private Integer wordNumber ;
     /** 章节状态 */
     private String state ;
     /** 书籍id(外键) */
@@ -39,15 +37,12 @@ public class ChaptersEntity {
     private Date inRejectTime ;
     /** 章节序号 */
     private String chaptersNumber ;
-    /** 上线时间 */
-    private Date goOnlineTime ;
-    /** 下线时间 */
-    private Date offlineTime ;
     /** 原字数 */
     private Integer oldNumber ;
     /** 过滤词 */
     private String filterWords ;
-    /** 引进书籍 **/
-    private BookInEntity bookInEntity;
-
+    /** 书籍 **/
+    private BookOutEntity bookOutEntity;
 }
+
+

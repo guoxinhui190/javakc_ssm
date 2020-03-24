@@ -1,6 +1,11 @@
 package com.javakc.ssm.modules.bookIn.entity;
 
 import com.javakc.ssm.base.entity.BaseEntity;
+import com.javakc.ssm.modules.booklistIn.entity.BooklistInEntity;
+import com.javakc.ssm.modules.category.entity.CategoryEntity;
+import com.javakc.ssm.modules.chapters.entity.ChaptersEntity;
+import com.javakc.ssm.modules.copyright.entity.CopyrightEntity;
+import com.javakc.ssm.modules.temporay_chapters.entity.TemChaptersEntity;
 import lombok.Data;
 
 import java.util.Date;
@@ -85,5 +90,21 @@ public class BookInEntity extends BaseEntity<BookInEntity> {
     private String categoryId ;
     /** 开始收费章节 */
     private String tollSectionStart ;
+    /** 合作方 **/
+    private CopyrightEntity copyrightEntity;
+    /** 书单引进 **/
+    private BooklistInEntity booklistInEntity;
+    /** 分类 **/
+    private CategoryEntity categoryEntity;
+    /** 章节引进**/
+    private ChaptersEntity chaptersEntity;
+    /** 章节引进临时 **/
+    private TemChaptersEntity temChaptersEntity;
+
+    /**---------------------------------------------------------------------------**/
+    private String copyrightName;
+    private String batchName;
+    private String booklistName;
+    private String twoname;
 
 }
