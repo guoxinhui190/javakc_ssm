@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javakc.ssm.modules.copyright.dao.CopyrightDao">
+    <select id="findList" resultType="com.javakc.ssm.modules.copyright.entity.CopyrightEntity">
+            SELECT COPYRIGHTID AS bookId, COPYRIGHT_NAME AS copyrightName, COMPANY_NAME AS companyName, REMARKSNAME AS remarksName, PARTNERS_CLASS AS partnersClass
+             FROM COPYRIGHTT WHERE 1 = 1;
+    </select>
+
+    <insert id="insert">
+        INSERT INTO COPYRIGHTT(COPYRIGHTID, COPYRIGHT_NAME, COMPANY_NAME, REMARKSNAME, PARTNERS_CLASS )
+          VALUES (#{copyrightId}, #{copyrightName}, #{companyName}, #{remarksName}, #{partnersClass})
+    </insert>
+
+    <select id="get" resultType="com.javakc.ssm.modules.copyright.entity.CopyrightEntity">
+        SELECT COPYRIGHTID AS bookId, COPYRIGHT_NAME AS copyrightName, COMPANY_NAME AS companyName, REMARKSNAME AS remarksName, PARTNERS_CLASS AS partnersClass
+         FROM COPYRIGHTT WHERE COPYRIGHTID = #{0}
+    </select>
+
+    <update id="update">
+        UPDATE COPYRIGHTT SET COPYRIGHT_NAME=#{copyrightName}, COMPANY_NAME=#{companyName}， REMARKSNAME=#{remarksName}， PARTNERS_CLASS=#{partnersClass}
+         WHERE COPYRIGHTID=#{copyrightId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM COPYRIGHTT WHERE ID IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+</mapper>
