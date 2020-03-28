@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javakc.ssm.modules.customerIn.dao.CustomerInDao">
+    
+    <select id="findList" resultType="com.javakc.ssm.modules.customerIn.entity.CustomerInEntity">
+        SELECT CUSTOMER_ID AS customerId, CUSTOMER_NAME AS customerName, COMPANY_NAME AS companyName，SEX,
+        BIRTHDAY, POST, PHONE_NUMBER AS phoneNumber, LANDLINE_NUMBER AS  landlineNumber, MAILBOX, QQ, COMPANY_ADDRESS AS companyAddress, REMARKS,
+        COPYRIGHTID AS copyrId FROM CUSTOMER WHER FLAG = 0
+    </select>
+
+    <insert id="insert">
+        INSERT INTO CUSTOMER (CUSTOMER_ID, CUSTOMER_NAME, COMPANY_NAME, SEX, BIRTHDAY, POST, PHONE_NUMBER, LANDLINE_NUMBER, MAILBOX, QQ, COMPANY_ADDRESS, REMARKS)
+        VALUES (#{customerId}, #{customerName}, #{companyName}, #{sex}, #{birthday}, #{post}, #{phoneNumber}, #{landlineNumber}, #{mailbox}, #{QQ}, #{companyAddress}, #{remarks})
+    </insert>
+
+    <select id="get" resultType="com.javakc.ssm.modules.customerIn.entity.CustomerInEntity">
+        SELECT CUSTOMER_NAME, COMPANY_NAME, SEX, BIRTHDAY, POST, PHONE_NUMBER, LANDLINE_NUMBER, MAILBOX, QQ, COMPANY_ADDRESS, REMARKS
+        FROM CUSTOMER WHERE CUSTOMER_ID = #{customerId}
+    </select>
+
+    <update id="update">
+        UPDATE CUSTOMER SET CUSTOMER_NAME=#{customerName}, COMPANY_NAME=#{companyName}, SEX=#{sex}, BIRTHDAY=#{birthday}, POST=#{post}, PHONE_NUMBER=#{phoneNumber},
+         LANDLINE_NUMBER=#{landlineNumber}, MAILBOX=#{mailbox}, QQ=#{QQ}, COMPANY_ADDRESS=#{companyAddress}, REMARKS=#{remarks}
+         WHERE CUSTOMER_ID=#{customerId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM CUSTOMER WHERE CUSTOMER_ID IN
+        <foreach collection="array" item="id" open="(" separator="," close=")">
+            #{customerId}
+        </foreach>
+    </delete>
+
+</mapper>

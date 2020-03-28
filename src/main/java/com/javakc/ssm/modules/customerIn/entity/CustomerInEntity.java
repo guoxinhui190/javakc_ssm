@@ -1,7 +1,8 @@
 package com.javakc.ssm.modules.customerIn.entity;
 
+import com.javakc.ssm.base.entity.BaseEntity;
+import com.javakc.ssm.modules.copyright.entity.CopyrightEntity;
 import lombok.Data;
-
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  **/
 
 @Data
-public class CustomerInEntity {
+public class CustomerInEntity extends BaseEntity<CustomerInEntity> {
 
     /**
      * 客户ID

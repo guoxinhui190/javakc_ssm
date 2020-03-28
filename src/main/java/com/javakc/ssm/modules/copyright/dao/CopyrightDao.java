@@ -10,5 +10,5 @@ import com.javakc.ssm.modules.copyright.entity.CopyrightEntity;
  * @Date 2020/3/21 12:00
  * @Version 1.0
  **/
-public interface CopyrightDao extends BaseDao<CopyrightEntity> {
+public interface  CopyrightDao extends BaseDao<CopyrightEntity> {
 }

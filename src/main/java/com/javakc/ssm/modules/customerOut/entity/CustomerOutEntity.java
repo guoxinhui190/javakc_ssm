@@ -1,7 +1,7 @@
 package com.javakc.ssm.modules.customerOut.entity;
 
+import com.javakc.ssm.base.entity.BaseEntity;
 import lombok.Data;
-
 import java.util.Date;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Date;
  **/
 
 @Data
-public class CustomerOutEntity {
+public class CustomerOutEntity extends BaseEntity<CustomerOutEntity> {
 
     /**
      * 客户ID

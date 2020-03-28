@@ -1,5 +1,6 @@
 package com.javakc.ssm.modules.operator.entity;
 
+import com.javakc.ssm.base.entity.BaseEntity;
 import lombok.Data;
 
 /**
@@ -11,7 +12,7 @@ import lombok.Data;
  **/
 
 @Data
-public class OperatorEntity {
+public class OperatorEntity extends BaseEntity<OperatorEntity> {
 
     /**
      * 合作方ID
