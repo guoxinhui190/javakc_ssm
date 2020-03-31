@@ -45,7 +45,7 @@ public class OperatorController {
         operatorEntity.setCopyrightId (CommonUtil.uuid());
         // ## 调用service中得保存方法
         operatorService.save(operatorEntity);
-        return "redirect:operator.do";
+        return "redirect:queryOperator.do";
     }
 
     /**
@@ -68,14 +68,14 @@ public class OperatorController {
     public String update(OperatorEntity operatorEntity){
         //  ##调用service中的修改方法
         operatorService.update(operatorEntity);
-        return "redirect:operator.do";
+        return "redirect:queryOperator.do";
     }
 
     @RequestMapping("delete")
     public String delete(String[] ids) {
         // ##调用service中的批量删除方法
         operatorService.delete(ids);
-        return "redirect:operator.do";
+        return "redirect:queryOperator.do";
     }
     
 }

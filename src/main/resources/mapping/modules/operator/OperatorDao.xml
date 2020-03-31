@@ -4,26 +4,26 @@
 
     <select id="findList" resultType="com.javakc.ssm.modules.operator.entity.OperatorEntity">
             SELECT COPYRIGHTID AS bookId, COPYRIGHT_NAME AS copyrightName, COMPANY_NAME AS companyName, REMARKSNAME AS remarksName, PARTNERS_CLASS AS partnersClass
-             FROM COPYRIGHTT WHERE FLAG = 0;
+             FROM COPYRIGHT WHERE FLAG = 0
     </select>
 
     <insert id="insert">
-        INSERT INTO COPYRIGHTT(COPYRIGHTID, COPYRIGHT_NAME, COMPANY_NAME, REMARKSNAME, PARTNERS_CLASS )
+        INSERT INTO COPYRIGHT(COPYRIGHTID, COPYRIGHT_NAME, COMPANY_NAME, REMARKSNAME, PARTNERS_CLASS )
           VALUES (#{copyrightId}, #{copyrightName}, #{companyName}, #{remarksName}, #{partnersClass})
     </insert>
 
     <select id="get" resultType="com.javakc.ssm.modules.operator.entity.OperatorEntity">
         SELECT COPYRIGHTID AS bookId, COPYRIGHT_NAME AS copyrightName, COMPANY_NAME AS companyName, REMARKSNAME AS remarksName, PARTNERS_CLASS AS partnersClass
-         FROM COPYRIGHTT WHERE COPYRIGHTID = #{0}
+         FROM COPYRIGHT WHERE COPYRIGHTID = #{0}
     </select>
 
     <update id="update">
-        UPDATE COPYRIGHTT SET COPYRIGHT_NAME=#{copyrightName}, COMPANY_NAME=#{companyName}， REMARKSNAME=#{remarksName}， PARTNERS_CLASS=#{partnersClass}
+        UPDATE COPYRIGHT SET COPYRIGHT_NAME=#{copyrightName}, COMPANY_NAME=#{companyName}， REMARKSNAME=#{remarksName}， PARTNERS_CLASS=#{partnersClass}
          WHERE COPYRIGHTID=#{copyrightId}
     </update>
 
     <delete id="delete">
-        DELETE FROM COPYRIGHTT WHERE ID IN
+        DELETE FROM COPYRIGHT WHERE ID IN
         <foreach collection="array" item="id" open="(" separator="," close=")">
             #{copyrightId}
         </foreach>

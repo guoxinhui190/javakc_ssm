@@ -44,7 +44,7 @@ public class CustomerOutController {
         customerOutEntity.setCustomerId (CommonUtil.uuid());
         // ## 调用service中得保存方法
         customerOutService.save(customerOutEntity);
-        return "redirect:customerOut.do";
+        return "redirect:queryCustomerOut.do";
     }
 
     /**
@@ -67,14 +67,14 @@ public class CustomerOutController {
     public String update(CustomerOutEntity customerOutEntity){
         //  ##调用service中的修改方法
         customerOutService.update(customerOutEntity);
-        return "redirect:customerOut.do";
+        return "redirect:queryCustomerOut.do";
     }
 
     @RequestMapping("delete")
     public String delete(String[] ids) {
         // ##调用service中的批量删除方法
         customerOutService.delete(ids);
-        return "redirect:customerOut.do";
+        return "redirect:queryCustomerOut.do";
     }
 
 }

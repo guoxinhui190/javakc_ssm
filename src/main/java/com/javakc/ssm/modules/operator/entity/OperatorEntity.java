@@ -29,7 +29,7 @@ public class OperatorEntity extends BaseEntity<OperatorEntity> {
     /**
      *备注名
      */
-    private String remarkname;
+    private String remarksName;
     /**
      *合作方类别
      * 0：输出   1：引进  2：双向

@@ -5,7 +5,7 @@
     <select id="findList" resultType="com.javakc.ssm.modules.customerOut.entity.CustomerOutEntity">
         SELECT CUSTOMER_ID AS customerId, CUSTOMER_NAME AS customerName, COMPANY_NAME AS companyName，SEX,
         BIRTHDAY, POST, PHONE_NUMBER AS phoneNumber, LANDLINE_NUMBER AS  landlineNumber, MAILBOX, QQ, COMPANY_ADDRESS AS companyAddress, REMARKS,
-        COPYRIGHTID AS copyrId FROM CUSTOMER WHER FLAG = 0
+        COPYRIGHTID AS copyrId FROM CUSTOMER WHERE FLAG = 0
     </select>
 
     <insert id="insert">

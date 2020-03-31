@@ -44,7 +44,7 @@ public class CustomerInController {
         customerInEntity.setCustomerId (CommonUtil.uuid());
         // ## 调用service中得保存方法
         customerInService.save(customerInEntity);
-        return "redirect:customerIn.do";
+        return "redirect:queryCustomerIn.do";
     }
 
     /**
@@ -67,14 +67,14 @@ public class CustomerInController {
     public String update(CustomerInEntity customerInEntity){
         //  ##调用service中的修改方法
         customerInService.update(customerInEntity);
-        return "redirect:customerIn.do";
+        return "redirect:queryCustomerIn.do";
     }
 
     @RequestMapping("delete")
     public String delete(String[] ids) {
         // ##调用service中的批量删除方法
         customerInService.delete(ids);
-        return "redirect:customerIn.do";
+        return "redirect:queryCustomerIn.do";
     }
 
 }

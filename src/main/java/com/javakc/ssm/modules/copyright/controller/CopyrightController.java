@@ -44,7 +44,7 @@ public class CopyrightController {
         copyrightEntity.setCopyrightId (CommonUtil.uuid());
         // ## 调用service中得保存方法
         copyrightService.save(copyrightEntity);
-        return "redirect:copyright.do";
+        return "redirect:queryCopyright.do";
     }
 
     /**
@@ -74,7 +74,7 @@ public class CopyrightController {
     public String delete(String[] ids) {
         // ##调用service中的批量删除方法
         copyrightService.delete(ids);
-        return "redirect:copyright.do";
+        return "redirect:queryCopyright.do";
     }
 
 

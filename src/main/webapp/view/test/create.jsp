@@ -5,7 +5,14 @@
 		<title>测试添加页面</title>
 		<%@ include file="../../common/jsp/header.jsp"%>
 		<link href="${path }/static/css/plugins/file-input/fileinput.min.css" rel="stylesheet">
-	</head>
+<%--	    <script>--%>
+<%--            $(function () {--%>
+<%--                $.ajax({--%>
+<%--                    url:root+'test/queryUser.do',--%>
+<%--                })--%>
+<%--            })--%>
+<%--        </script>--%>
+    </head>
 	<body>
 		<div class="wrapper wrapper-content animated fadeInRight">
 			<div>

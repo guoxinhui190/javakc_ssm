@@ -48,7 +48,41 @@ String path = request.getContextPath();
                         <div class="logo-element">javakc
                         </div>
                     </li>
-                  	<javakc:menu role="${sessionScope['user'].roleList[0] }"></javakc:menu>
+
+
+
+
+
+
+                    <li><a href='#'><i class='fa fa-inbox'></i>
+                        <span class='nav-label'>版权引进</span>
+                        <span class='fa arrow'></span></a>
+                        <ul class='nav nav-second-level'>
+                            <li><a class='J_menuItem' href='#'>版权引进统计</a></li>
+                            <li><a class='J_menuItem' href='copyright/queryCopyright.do'>版权方管理</a></li>
+                            <li><a class='J_menuItem' href='customerIn/queryCustomerIn.do'>用户管理</a></li>
+                            <li><a class='J_menuItem' href='#'>书单管理</a></li>
+                            <li><a class='J_menuItem' href='#'>批次管理</a></li>
+                            <li><a class='J_menuItem' href='#'>接口管理</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='#'><i class='fa fa-inbox'></i>
+                        <span class='nav-label'>版权输出</span>
+                        <span class='fa arrow'></span></a>
+                        <ul class='nav nav-second-level'>
+                            <li><a class='J_menuItem' href='user/query.do'>运营方管理</a></li>
+                            <li><a class='J_menuItem' href='role/query.do'>书单管理</a></li>
+                            <li><a class='J_menuItem' href='menu/query.do'>批次管理</a></li>
+                            <li><a class='J_menuItem' href='view/system/cache/list.jsp'>接口管理</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
                 </ul>
             </div>
         </nav>
